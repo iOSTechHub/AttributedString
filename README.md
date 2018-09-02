@@ -2,7 +2,10 @@
 
 [![Swift-4.0](http://img.shields.io/badge/Swift-4.0-blue.svg)]()
 
-Super easy way to use NSMutableAttributedString
+Super easy way to use NSMutableAttributedString. 
+
+## Motivation
+Motivation of this project to make Attributed string super easy to use. This project save lots of time of developer while created attributed string.
 
 
 ![Attributed string sample](https://res.cloudinary.com/ios/image/upload/v1535904391/AttributedString.png)
