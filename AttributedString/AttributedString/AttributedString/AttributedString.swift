@@ -15,13 +15,13 @@ extension NSMutableAttributedString {
         return NSMutableAttributedString(string: string)
     }
     
-    func apply(attribute: [NSAttributedStringKey: Any], subString: String)  {
+    func apply(attribute: [NSAttributedString.Key: Any], subString: String)  {
         if let range = self.string.range(of: subString) {
             self.apply(attribute: attribute, onRange: NSRange(range, in: self.string))
         }
     }
     
-    func apply(attribute: [NSAttributedStringKey: Any], onRange range: NSRange) {
+    func apply(attribute: [NSAttributedString.Key: Any], onRange range: NSRange) {
         if range.location != NSNotFound {
             self.setAttributes(attribute, range: range)
         }
@@ -39,7 +39,7 @@ extension NSMutableAttributedString {
     
     // Apply color on given range
     func apply(color: UIColor, onRange: NSRange) {
-        self.addAttributes([NSAttributedStringKey.foregroundColor: color],
+        self.addAttributes([NSAttributedString.Key.foregroundColor: color],
                            range: onRange)
     }
     
@@ -57,7 +57,7 @@ extension NSMutableAttributedString {
     // Apply font on given range
     func apply(font: UIFont, onRange: NSRange) {
         
-        self.addAttributes([NSAttributedStringKey.font: font], range: onRange)
+        self.addAttributes([NSAttributedString.Key.font: font], range: onRange)
     }
     
     
@@ -72,7 +72,7 @@ extension NSMutableAttributedString {
     
     // Apply background color on given range
     func apply(backgroundColor: UIColor, onRange: NSRange) {
-        self.addAttributes([NSAttributedStringKey.backgroundColor: backgroundColor],
+        self.addAttributes([NSAttributedString.Key.backgroundColor: backgroundColor],
                            range: onRange)
     }
     
@@ -88,7 +88,7 @@ extension NSMutableAttributedString {
     
     // Underline string on given range
     func underLine(onRange: NSRange) {
-        self.addAttributes([NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue],
+        self.addAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue],
                            range: onRange)
     }
     
@@ -105,7 +105,7 @@ extension NSMutableAttributedString {
     // Apply Strikethrough on given range
     func strikeThrough(thickness: Int, onRange: NSRange)  {
         
-        self.addAttributes([NSAttributedStringKey.strikethroughStyle : NSUnderlineStyle.styleThick.rawValue],
+        self.addAttributes([NSAttributedString.Key.strikethroughStyle : NSUnderlineStyle.thick.rawValue],
                            range: onRange)
     }
     
@@ -121,9 +121,9 @@ extension NSMutableAttributedString {
     
     // Apply stroke on give range
     func applyStroke(color: UIColor, thickness: Int, onRange: NSRange) {
-        self.addAttributes([NSAttributedStringKey.strokeColor : color],
+        self.addAttributes([NSAttributedString.Key.strokeColor : color],
                            range: onRange)
-        self.addAttributes([NSAttributedStringKey.strokeWidth : thickness],
+        self.addAttributes([NSAttributedString.Key.strokeWidth : thickness],
                            range: onRange)
     }
     
@@ -144,7 +144,7 @@ extension NSMutableAttributedString {
         shadow.shadowOffset = CGSize(width: shadowWidth, height: shadowHeigt)
         shadow.shadowColor = shadowColor
         shadow.shadowBlurRadius = shadowRadius
-        self.addAttributes([NSAttributedStringKey.shadow : shadow], range: onRange)
+        self.addAttributes([NSAttributedString.Key.shadow : shadow], range: onRange)
     }
     
     
@@ -161,10 +161,8 @@ extension NSMutableAttributedString {
     func alignment(alignment: NSTextAlignment, onRange: NSRange) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
-        self.addAttributes([NSAttributedStringKey.paragraphStyle : paragraphStyle], range: onRange)
+        self.addAttributes([NSAttributedString.Key.paragraphStyle : paragraphStyle], range: onRange)
     }
-    
-    
     
     
 }
